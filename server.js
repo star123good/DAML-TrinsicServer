@@ -18,8 +18,9 @@ app.use(parser.json());
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('*', function (req, res) {
-    console.log(process.env)
-    res.sendFile(path.join(__dirname, '/build/index.html'));
+    // console.log(process.env);
+    res.sendFile(path.join(__dirname, '/public/home.html'));
+    // res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
 // WEBHOOK ENDPOINT
@@ -225,3 +226,5 @@ server = server.listen(PORT/* , async function () {
     cache.add("webhookId", response.id);
     console.log('Listening on port %d', server.address().port);
 } */); 
+
+console.log("=================\n\n Running on " + PORT + "\n\n=================");
