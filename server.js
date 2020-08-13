@@ -17,7 +17,7 @@ app.use(cors());
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, 'build')))
 
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
     // console.log(process.env);
     res.sendFile(path.join(__dirname, '/public/home.html'));
     // res.sendFile(path.join(__dirname, '/build/index.html'));
