@@ -34,13 +34,13 @@ After defining the credential, you are ready to run the application.
 `bash install_nvm.sh`\
 `source ~/.profile`\
 Currently installed v12.16.2\
-`nvm install 12.16.2`\
+`nvm install 12.16.2`
 
 ### Installing PM2
 `sudo npm install -g pm2`\
 In project folder(located at /var/www/TrinsicServer)\
 `pm2 start server.js --name trinsic`\
-Current App name of pm2 is trinsic.\
+Current App name of pm2 is trinsic.
 
 ### Configuring Apache to Reverse Proxy to PM2
 Defines a backend service to include in a proxy_Balancer cluster. (at the moment it's running on port 9417)\
@@ -62,7 +62,7 @@ Inside root of project folder,\
 `git pull origin master`\
 Then,\
 `pm2 reload trinsic`\
-`sudo service apache2 restart`\
+`sudo service apache2 restart`
 
 
 
