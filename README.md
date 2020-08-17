@@ -30,7 +30,7 @@ After defining the credential, you are ready to run the application.
 
 ## Deploy
 ### Installing Node.js using NVM(Node Version Management)
-`curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh -o install_nvm.sh`
+`curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh -o install_nvm.sh`\
 `bash install_nvm.sh`
 `source ~/.profile`
 Currently installed v12.16.2
