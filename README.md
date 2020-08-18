@@ -28,6 +28,45 @@ After defining the credential, you are ready to run the application.
 
 
 
+## Deploy
+### Installing Node.js using NVM(Node Version Management)
+`curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh -o install_nvm.sh`
+`bash install_nvm.sh`
+`source ~/.profile`
+Currently installed v12.16.2
+`nvm install 12.16.2`
+
+### Installing PM2
+`sudo npm install -g pm2`
+In project folder(located at /var/www/TrinsicServer)
+`pm2 start server.js --name trinsic`
+Current App name of pm2 is trinsic.
+
+### Configuring Apache to Reverse Proxy to PM2
+Defines a backend service to include in a proxy_Balancer cluster. (at the moment it's running on port 9417)
+```
+<VirtualHost *:80>
+    <Proxy balancer://microservice-cluster>
+        BalancerMember http://127.0.0.1:9417
+    </Proxy>
+
+    ProxyPreserveHost On
+
+    ProxyPass / balancer://microservice-cluster/
+    ProxyPassReverse / balancer://microservice-cluster/
+</VirtualHost>
+```
+
+### Restart Server with new or updated source
+Inside root of project folder,
+`git pull origin master`
+Then,
+`pm2 reload trinsic`
+`sudo service apache2 restart`
+
+
+
+
 > Contact <support@trinsic.id> for any questions. 
 
 
